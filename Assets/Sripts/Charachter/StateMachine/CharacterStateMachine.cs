@@ -1,16 +1,19 @@
 using System.Collections.Generic;
 using System.Linq;
 
-public class CharacterStateMAachine : IStateSwitcher
+public class CharacterStateMachine : IStateSwitcher
 {
     private List<IState> _states;
     private IState _currentsState;
 
-    public CharacterStateMAachine()
+    public CharacterStateMachine(Character character)
     {
+        StateMachineData data = new StateMachineData();
+
         _states = new List<IState>()
         {
-
+            new IdleingState(this, data, character),
+            new RuningState(this, data, character)
         };
 
         _currentsState = _states[0];

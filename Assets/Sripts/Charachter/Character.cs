@@ -5,7 +5,7 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     private PlayerInput _input;
-    private CharacterStateMAachine _stateMachine;
+    private CharacterStateMachine _stateMachine;
     private CharacterController _characterController;
 
     public PlayerInput Input => _input;
@@ -15,7 +15,7 @@ public class Character : MonoBehaviour
     {
         _characterController = GetComponent<CharacterController>();
         _input = new PlayerInput();
-        _stateMachine = new CharacterStateMAachine();
+        _stateMachine = new CharacterStateMachine(this);
     }
 
     private void Update()
