@@ -10,7 +10,16 @@ public class IdleingState : MovementState
     {
         base.Enter();
 
+        View.StartIdling();
+
         Data.Speed = 0;
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+
+        View.StopIdling();
     }
 
     public override void Update()
@@ -22,4 +31,6 @@ public class IdleingState : MovementState
 
         StateSwitcher.SwitchState<RuningState>();
     }
+
+
 }

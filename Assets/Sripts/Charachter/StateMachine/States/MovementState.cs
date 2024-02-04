@@ -17,6 +17,7 @@ public abstract class MovementState : IState
 
     protected PlayerInput Input => _character.Input;
     protected CharacterController CharaccterController => _character.Controller;
+    protected CharacterVeiw View => _character.View;
 
     private Quaternion TurnRight => new Quaternion(0, 0, 0, 0);
     private Quaternion TurnLeft => Quaternion.Euler(0, 180, 0);
