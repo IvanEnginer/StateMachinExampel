@@ -25,9 +25,14 @@ public abstract class MovementState : IState
     public virtual void Enter()
     {
         Debug.Log(GetType());
+
+        AddInputActionCallbacks();
     }
 
-    public virtual void Exit() { }
+    public virtual void Exit() 
+    {
+        RemoveInputActionCallbacks();
+    }
 
     public virtual void HandelInput()
     {
@@ -42,6 +47,9 @@ public abstract class MovementState : IState
         CharaccterController.Move(velocity * Time.deltaTime);
         _character.transform.rotation = GetRotation(velocity);
     }
+
+    protected virtual void AddInputActionCallbacks() { }
+    protected virtual void RemoveInputActionCallbacks() { }
 
     protected bool IsHorizontaleInpurZero() => Data.XInput == 0;
 

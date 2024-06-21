@@ -153,6 +153,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4106723307638774431}
+  - {fileID: 580184218}
   m_Father: {fileID: 930958136}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &330585543
@@ -512,6 +513,54 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!1 &580184217
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 580184218}
+  - component: {fileID: 580184219}
+  m_Layer: 0
+  m_Name: GroundChecker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &580184218
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580184217}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 261027322}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &580184219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580184217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff85d44040c5062489847666b21c9b52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ground:
+    serializedVersion: 2
+    m_Bits: 64
+  _distanceTocheck: 0.1
 --- !u!1 &619770388
 GameObject:
   m_ObjectHideFlags: 0
@@ -642,7 +691,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 881624091}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -737,6 +786,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 930958136}
+  - component: {fileID: 930958138}
+  - component: {fileID: 930958137}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -760,6 +811,47 @@ Transform:
   - {fileID: 261027322}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &930958137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930958135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f2886dfeedb91a42948121dac37dddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _config: {fileID: 11400000, guid: b6b14495c275e994ab22ee08b2d91ff4, type: 2}
+  _view: {fileID: 9044556097922379357}
+  _groundChecker: {fileID: 0}
+--- !u!143 &930958138
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930958135}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 2
+  m_Radius: 0.4
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!33 &10870894091274480
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -780,7 +872,7 @@ GameObject:
   - component: {fileID: 4384482841377346337}
   - component: {fileID: 1962505814216763371}
   - component: {fileID: 4384482841377346338}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (28)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -987,7 +1079,7 @@ GameObject:
   - component: {fileID: 4450466293085773728}
   - component: {fileID: 1884700139150044010}
   - component: {fileID: 4450466293085773729}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (60)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1009,7 +1101,7 @@ Transform:
   m_Children:
   - {fileID: 1497621901942503525}
   m_Father: {fileID: 6099490250690820505}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 34.852962, y: -4.2635794, z: 12.607989}
 --- !u!33 &92252497351053073
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1181,7 +1273,7 @@ GameObject:
   - component: {fileID: 4073190539483278421}
   - component: {fileID: 2261394697114163359}
   - component: {fileID: 4073190539483278422}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (32)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1242,7 +1334,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7715847721487069148}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 4.8948174, y: 4.903599, z: 8.569193}
 --- !u!23 &361600612970065848
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1517,7 +1609,7 @@ GameObject:
   - component: {fileID: 4117163812172900501}
   - component: {fileID: 2218002911466118239}
   - component: {fileID: 4117163812172900502}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (24)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1552,7 +1644,7 @@ GameObject:
   - component: {fileID: 4318184267908102054}
   - component: {fileID: 2020342717905060716}
   - component: {fileID: 4318184267908102055}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1571,7 +1663,7 @@ GameObject:
   - component: {fileID: 4307884199255638279}
   - component: {fileID: 2030097119648839117}
   - component: {fileID: 4307884199255638280}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (63)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1600,7 +1692,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4550149991350439710}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 5.1031985, y: -0.0000017094063, z: -0.0000057845587}
 --- !u!33 &557522929971575841
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1636,7 +1728,7 @@ GameObject:
   - component: {fileID: 3785314370428783742}
   - component: {fileID: 1399726769363630260}
   - component: {fileID: 3785314370428783743}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (39)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1658,7 +1750,7 @@ Transform:
   m_Children:
   - {fileID: 5581754247276414088}
   m_Father: {fileID: 8063527996534472426}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 75.52653, y: 22.362343, z: 30.583115}
 --- !u!1 &659041467600236004
 GameObject:
   m_ObjectHideFlags: 0
@@ -1687,7 +1779,7 @@ GameObject:
   - component: {fileID: 3867783010070081894}
   - component: {fileID: 1317821234864735660}
   - component: {fileID: 3867783010070081895}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (35)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1780,7 +1872,7 @@ GameObject:
   - component: {fileID: 3910727676812805532}
   - component: {fileID: 1270372796163666262}
   - component: {fileID: 3910727676812805533}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1802,7 +1894,7 @@ Transform:
   m_Children:
   - {fileID: 2617489482457022440}
   m_Father: {fileID: 4552048667132083647}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.3228777, y: -4.383782, z: 0.53755033}
 --- !u!4 &826151593582304388
 Transform:
   m_ObjectHideFlags: 0
@@ -1833,7 +1925,7 @@ Transform:
   m_Children:
   - {fileID: 1396613339356202495}
   m_Father: {fileID: 7994168393642705786}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 46.916836, y: -51.149242, z: -7.9190855}
 --- !u!23 &861661622376557253
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1919,7 +2011,7 @@ GameObject:
   - component: {fileID: 3491077395485752458}
   - component: {fileID: 1699610973356296256}
   - component: {fileID: 3491077395485752459}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (27)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1940,7 +2032,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8973573839837240000}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 1.2090129, y: 0.3313964, z: 0.33137086}
 --- !u!33 &1007986480321269635
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1961,7 +2053,7 @@ GameObject:
   - component: {fileID: 3665471652167396396}
   - component: {fileID: 1529720041973700838}
   - component: {fileID: 3665471652167396397}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (44)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2008,10 +2100,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4106723307638774431}
-  - component: {fileID: 6229605106513672165}
   - component: {fileID: 9044556097922379355}
-  - component: {fileID: 9044556097922379353}
-  - component: {fileID: 9044556097922379354}
+  - component: {fileID: 9044556097922379356}
+  - component: {fileID: 9044556097922379357}
   m_Layer: 0
   m_Name: Jammo_Player
   m_TagString: Untagged
@@ -2247,7 +2338,7 @@ GameObject:
   - component: {fileID: 3175543408698039823}
   - component: {fileID: 861661622376557253}
   - component: {fileID: 3175543408698039824}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2328,7 +2419,7 @@ Transform:
   m_Children:
   - {fileID: 8378127140868977976}
   m_Father: {fileID: 4540985195558598681}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 26.3439, y: 15.68594, z: -178.62044}
 --- !u!23 &1317821234864735660
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2384,7 +2475,7 @@ GameObject:
   - component: {fileID: 3352379137749846979}
   - component: {fileID: 676380355389980425}
   - component: {fileID: 3352379137749846980}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (62)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2421,7 +2512,7 @@ Transform:
   m_Children:
   - {fileID: 5281865375542955559}
   m_Father: {fileID: 854040597875680292}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 19.28295, y: 12.809882, z: -82.073135}
 --- !u!23 &1399726769363630260
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2501,7 +2592,7 @@ GameObject:
   - component: {fileID: 2915918541534906565}
   - component: {fileID: 1122411427906796559}
   - component: {fileID: 2915918541534906566}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2538,7 +2629,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 91366247476019248}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 4.8948174, y: -4.903599, z: -8.569193}
 --- !u!33 &1504036164150362212
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2620,7 +2711,7 @@ Transform:
   m_Children:
   - {fileID: 2089352260568475283}
   m_Father: {fileID: 8934138318865888290}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 52.4949, y: -4.1359415, z: -8.376238}
 --- !u!4 &1574393313788613998
 Transform:
   m_ObjectHideFlags: 0
@@ -2710,7 +2801,7 @@ Transform:
   m_Children:
   - {fileID: 4187844084930159561}
   m_Father: {fileID: 6599363474393474716}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -42.003296, y: -8.9312, z: -25.218351}
 --- !u!137 &1771236557637044157
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -2845,7 +2936,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3928606673955436402}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 2.2293978, y: -4.7274227, z: -1.7559144}
 --- !u!4 &1813209595381646438
 Transform:
   m_ObjectHideFlags: 0
@@ -2873,7 +2964,7 @@ GameObject:
   - component: {fileID: 2725235994047003997}
   - component: {fileID: 159047635902613911}
   - component: {fileID: 2725235994047003998}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3021,7 +3112,7 @@ Transform:
   m_Children:
   - {fileID: 3371955460587298300}
   m_Father: {fileID: 2853990502650345464}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 18.777618, y: -12.898599, z: 80.30902}
 --- !u!1 &1970727232348154890
 GameObject:
   m_ObjectHideFlags: 0
@@ -3034,7 +3125,7 @@ GameObject:
   - component: {fileID: 2863557913533987093}
   - component: {fileID: 25211294011575775}
   - component: {fileID: 2863557913533987094}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (47)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3113,7 +3204,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6122989469510958184}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 75.38284, y: 0.3503092, z: 97.47056}
 --- !u!23 &2030097119648839117
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3235,7 +3326,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1548789995973762950}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 5.0996885, y: 0.0000004229424, z: 0.0000019458923}
 --- !u!4 &2149791379539310205
 Transform:
   m_ObjectHideFlags: 0
@@ -3280,7 +3371,7 @@ GameObject:
   - component: {fileID: 2513112627399629682}
   - component: {fileID: 361600612970065848}
   - component: {fileID: 2513112627399629683}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (37)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3411,7 +3502,7 @@ GameObject:
   - component: {fileID: 2483319535530269387}
   - component: {fileID: 401509469390974465}
   - component: {fileID: 2483319535530269388}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3557,7 +3648,7 @@ Transform:
   m_Children:
   - {fileID: 3850650804686104886}
   m_Father: {fileID: 5281865375542955559}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 68.6065, y: 25.209185, z: 35.37543}
 --- !u!23 &2330700146549442795
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3656,7 +3747,7 @@ GameObject:
   - component: {fileID: 2057543820987250036}
   - component: {fileID: 4280999640468177342}
   - component: {fileID: 4280999640468177343}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3691,7 +3782,7 @@ GameObject:
   - component: {fileID: 2045492061554347336}
   - component: {fileID: 4289673665823701378}
   - component: {fileID: 4289673665823701379}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (30)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3710,7 +3801,7 @@ GameObject:
   - component: {fileID: 2037235430663109024}
   - component: {fileID: 4296787663976090986}
   - component: {fileID: 4296787663976090987}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3746,7 +3837,7 @@ GameObject:
   - component: {fileID: 2032275486115828802}
   - component: {fileID: 4310191685527920776}
   - component: {fileID: 4310191685527920777}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (38)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3899,7 +3990,7 @@ GameObject:
   - component: {fileID: 2304878085683963045}
   - component: {fileID: 4042091861493846127}
   - component: {fileID: 4042091861493846128}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4155,7 +4246,7 @@ Transform:
   - {fileID: 2994389257622194952}
   - {fileID: 7109507414978051999}
   m_Father: {fileID: 796963921434871245}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 1.3636827, y: -4.467798, z: 0.9397237}
 --- !u!4 &2619334551527562352
 Transform:
   m_ObjectHideFlags: 0
@@ -4171,7 +4262,7 @@ Transform:
   m_Children:
   - {fileID: 7720691204922302695}
   m_Father: {fileID: 4811052362567066864}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -24.542267, y: -1.8867167, z: -5.213041}
 --- !u!1 &2619721604388231637
 GameObject:
   m_ObjectHideFlags: 0
@@ -4184,7 +4275,7 @@ GameObject:
   - component: {fileID: 1783167971485895882}
   - component: {fileID: 4565491804250945536}
   - component: {fileID: 4565491804250945537}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (46)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4218,7 +4309,7 @@ GameObject:
   - component: {fileID: 1869578024254738435}
   - component: {fileID: 4474013999989810377}
   - component: {fileID: 4474013999989810378}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (49)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4453,7 +4544,7 @@ GameObject:
   - component: {fileID: 1914691291107602643}
   - component: {fileID: 4428919545076401177}
   - component: {fileID: 4428919545076401178}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (45)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4518,7 +4609,7 @@ Transform:
   m_Children:
   - {fileID: 5290112843865914356}
   m_Father: {fileID: 7425744715703824251}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 80.66584, y: 47.759235, z: 54.97651}
 --- !u!23 &2839634266082878437
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4620,7 +4711,7 @@ Transform:
   m_Children:
   - {fileID: 1962982688110815840}
   m_Father: {fileID: 7109507414978051999}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 32.53489, y: -1.5193737, z: 31.931263}
 --- !u!137 &2857702944700967960
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -4817,7 +4908,7 @@ GameObject:
   - component: {fileID: 1958249908539384560}
   - component: {fileID: 4380294497683019322}
   - component: {fileID: 4380294497683019323}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (50)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4852,7 +4943,7 @@ GameObject:
   - component: {fileID: 1504036164150362212}
   - component: {fileID: 3691719853927232686}
   - component: {fileID: 3691719853927232687}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (36)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5030,7 +5121,7 @@ Transform:
   m_Children:
   - {fileID: 6122989469510958184}
   m_Father: {fileID: 2617489482457022440}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 1.5439771, y: 2.7920442, z: 0.89640945}
 --- !u!23 &3033703303983856457
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5119,7 +5210,7 @@ Transform:
   m_Children:
   - {fileID: 7425744715703824251}
   m_Father: {fileID: 5281865375542955559}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 85.29133, y: 106.083694, z: 117.165215}
 --- !u!4 &3156134538285613805
 Transform:
   m_ObjectHideFlags: 0
@@ -5560,7 +5651,7 @@ Transform:
   - {fileID: 6154093543546613427}
   - {fileID: 6004625134597324351}
   m_Father: {fileID: 1962982688110815840}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -20.240768, y: -1.2365441, z: 14.881748}
 --- !u!4 &3391437327192179567
 Transform:
   m_ObjectHideFlags: 0
@@ -5700,7 +5791,7 @@ GameObject:
   - component: {fileID: 1422705765171444700}
   - component: {fileID: 3772468456480395030}
   - component: {fileID: 3772468456480395031}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (48)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5778,7 +5869,7 @@ GameObject:
   - component: {fileID: 1007986480321269635}
   - component: {fileID: 3033703303983856457}
   - component: {fileID: 4202647662375010343}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5912,7 +6003,7 @@ Transform:
   m_Children:
   - {fileID: 8973573839837240000}
   m_Father: {fileID: 8697120352043685422}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 74.88643, y: -17.07461, z: -24.156574}
 --- !u!4 &3610827687199353099
 Transform:
   m_ObjectHideFlags: 0
@@ -6224,7 +6315,7 @@ Transform:
   m_Children:
   - {fileID: 3984305135707576356}
   m_Father: {fileID: 2325657652205374315}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 73.00055, y: 19.292797, z: 25.859158}
 --- !u!33 &3867783010070081894
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -6313,7 +6404,7 @@ Transform:
   m_Children:
   - {fileID: 1783179519879173788}
   m_Father: {fileID: 8292431934407622579}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -20.255709, y: -0.84958106, z: 6.2706904}
 --- !u!4 &3947036523201082093
 Transform:
   m_ObjectHideFlags: 0
@@ -6328,7 +6419,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6122989469510958184}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -7.9460993, y: 0, z: 0}
 --- !u!4 &3956523035830223028
 Transform:
   m_ObjectHideFlags: 0
@@ -6374,7 +6465,7 @@ Transform:
   m_Children:
   - {fileID: 5444593475933538548}
   m_Father: {fileID: 3850650804686104886}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 70.77214, y: 16.072855, z: 22.456507}
 --- !u!1 &3988664914572045591
 GameObject:
   m_ObjectHideFlags: 0
@@ -6433,7 +6524,7 @@ GameObject:
   - component: {fileID: 351655041935019610}
   - component: {fileID: 2523602576257317520}
   - component: {fileID: 4036737490264808262}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6638,7 +6729,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1704247571042114755}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 2.2293763, y: 4.7274137, z: 1.7559164}
 --- !u!4 &4197321649579457322
 Transform:
   m_ObjectHideFlags: 0
@@ -6734,7 +6825,7 @@ GameObject:
   - component: {fileID: 557522929971575841}
   - component: {fileID: 2330700146549442795}
   - component: {fileID: 4276364794055387455}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6774,7 +6865,7 @@ GameObject:
   - component: {fileID: 542146883991369889}
   - component: {fileID: 2333674938968509547}
   - component: {fileID: 4279013992851877311}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (51)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7144,7 +7235,7 @@ GameObject:
   - component: {fileID: 39581422233933615}
   - component: {fileID: 2839634266082878437}
   - component: {fileID: 4352891913054585393}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (34)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7184,7 +7275,7 @@ GameObject:
   - component: {fileID: 35989289374550942}
   - component: {fileID: 2853922448023453524}
   - component: {fileID: 4367320833490476674}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (41)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7224,7 +7315,7 @@ GameObject:
   - component: {fileID: 10870894091274480}
   - component: {fileID: 2864966991517809722}
   - component: {fileID: 4378224775727472112}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7373,7 +7464,7 @@ GameObject:
   - component: {fileID: 131491492091653159}
   - component: {fileID: 2753900153680894189}
   - component: {fileID: 4411044840421505337}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (29)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7493,7 +7584,7 @@ GameObject:
   - component: {fileID: 92252497351053073}
   - component: {fileID: 2784148579253517275}
   - component: {fileID: 4441591644956908047}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (42)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7648,7 +7739,7 @@ Transform:
   - {fileID: 1294229709792186744}
   - {fileID: 4552048667132083647}
   m_Father: {fileID: 5602416134092865885}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 7.699436, y: -2.8684103, z: -1.3405857}
 --- !u!1 &4541558398629327372
 GameObject:
   m_ObjectHideFlags: 0
@@ -7661,7 +7752,7 @@ GameObject:
   - component: {fileID: 280015327650211603}
   - component: {fileID: 2595805378479494105}
   - component: {fileID: 4541558398629327373}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (55)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7704,7 +7795,7 @@ Transform:
   m_Children:
   - {fileID: 544583117431646228}
   m_Father: {fileID: 5561082351135507637}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 39.40463, y: -1.8870436, z: -5.2642083}
 --- !u!4 &4552048667132083647
 Transform:
   m_ObjectHideFlags: 0
@@ -7720,7 +7811,7 @@ Transform:
   m_Children:
   - {fileID: 796963921434871245}
   m_Father: {fileID: 4540985195558598681}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 6.5785894, y: -11.023044, z: 0.87778664}
 --- !u!23 &4565491804250945536
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7829,7 +7920,7 @@ GameObject:
   - component: {fileID: 8943844267954919628}
   - component: {fileID: 6627642444719401990}
   - component: {fileID: 8943844267954919629}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (40)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7929,7 +8020,7 @@ Transform:
   m_Children:
   - {fileID: 2619334551527562352}
   m_Father: {fileID: 4540985195558598681}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -57.73003, y: 0.7647681, z: -170.89642}
 --- !u!1 &4857743312855028184
 GameObject:
   m_ObjectHideFlags: 0
@@ -8155,7 +8246,7 @@ GameObject:
   - component: {fileID: 8897987018448455012}
   - component: {fileID: 6672354725028475310}
   - component: {fileID: 8897987018448455013}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8337,7 +8428,7 @@ GameObject:
   - component: {fileID: 8368207317534923271}
   - component: {fileID: 6036283094081646285}
   - component: {fileID: 8368207317534923272}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (21)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8362,7 +8453,7 @@ Transform:
   - {fileID: 2325657652205374315}
   - {fileID: 7917715520295256664}
   m_Father: {fileID: 1396613339356202495}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -8.86957, y: -3.6884658, z: -5.3638835}
 --- !u!33 &5289307565709516476
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -8385,7 +8476,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2793869333248295572}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 5.099695, y: -0.0000021324665, z: -0.00000325895}
 --- !u!33 &5290170022297265507
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -8438,7 +8529,7 @@ GameObject:
   - component: {fileID: 8567647425381013812}
   - component: {fileID: 5837389391578852862}
   - component: {fileID: 8567647425381013813}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (56)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8482,7 +8573,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6122989469510958184}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 75.38284, y: -0.3503092, z: -97.47056}
 --- !u!4 &5444593475933538548
 Transform:
   m_ObjectHideFlags: 0
@@ -8497,7 +8588,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3984305135707576356}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 5.103197, y: -0.0000007498709, z: -0.00000086061925}
 --- !u!4 &5454194967470856041
 Transform:
   m_ObjectHideFlags: 0
@@ -8525,7 +8616,7 @@ GameObject:
   - component: {fileID: 8129318831871886905}
   - component: {fileID: 6284160998006780659}
   - component: {fileID: 8129318831871886906}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (61)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8562,7 +8653,7 @@ Transform:
   m_Children:
   - {fileID: 4550149991350439710}
   m_Father: {fileID: 6154093543546613427}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 71.712395, y: -14.347256, z: -19.771526}
 --- !u!1 &5562286012855153626
 GameObject:
   m_ObjectHideFlags: 0
@@ -8603,7 +8694,7 @@ Transform:
   m_Children:
   - {fileID: 7493688609261612491}
   m_Father: {fileID: 613467030845827512}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 60.182858, y: 8.512783, z: 14.021735}
 --- !u!137 &5583134947143986655
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -9085,7 +9176,7 @@ Transform:
   m_Children:
   - {fileID: 8292431934407622579}
   m_Father: {fileID: 3371955460587298300}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 11.501912, y: 32.58453, z: 41.392666}
 --- !u!23 &6036283094081646285
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9159,7 +9250,7 @@ Transform:
   m_Children:
   - {fileID: 91366247476019248}
   m_Father: {fileID: 8378127140868977976}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 69.26948, y: -32.337734, z: -28.228445}
 --- !u!4 &6122989469510958184
 Transform:
   m_ObjectHideFlags: 0
@@ -9177,7 +9268,7 @@ Transform:
   - {fileID: 2021934519832920848}
   - {fileID: 5402609023003141630}
   m_Father: {fileID: 2994389257622194952}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 5.2913218, y: 18.37096, z: -3.9410045}
 --- !u!1 &6130419406332481228
 GameObject:
   m_ObjectHideFlags: 0
@@ -9224,7 +9315,7 @@ Transform:
   m_Children:
   - {fileID: 5561082351135507637}
   m_Father: {fileID: 3371955460587298300}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 76.11331, y: -24.813728, z: -23.268213}
 --- !u!33 &6159475498581343643
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -9264,27 +9355,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!95 &6229605106513672165
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1055349536705652876}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: f8af0573aab879f4c9cd410a4e0a39f9, type: 3}
-  m_Controller: {fileID: 9100000, guid: 535d24752e3d6444da644e79e90ec2ca, type: 2}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6268026044992580974
 GameObject:
   m_ObjectHideFlags: 0
@@ -9515,7 +9585,7 @@ GameObject:
   - component: {fileID: 7239019054694265341}
   - component: {fileID: 4869198445002687799}
   - component: {fileID: 7239019054694265342}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9697,7 +9767,7 @@ Transform:
   m_Children:
   - {fileID: 1704247571042114755}
   m_Father: {fileID: 7917715520295256664}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 9.746375, y: -29.198736, z: 29.898186}
 --- !u!23 &6627642444719401990
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9812,7 +9882,7 @@ GameObject:
   - component: {fileID: 6938724971685091981}
   - component: {fileID: 5165552702842531399}
   - component: {fileID: 6938724971685091982}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9864,7 +9934,7 @@ GameObject:
   - component: {fileID: 7062488660427471057}
   - component: {fileID: 5037266620218608667}
   - component: {fileID: 7062488660427471058}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10184,7 +10254,7 @@ Transform:
   m_Children:
   - {fileID: 2853990502650345464}
   m_Father: {fileID: 2617489482457022440}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 80.88098, y: 71.250084, z: -18.42716}
 --- !u!4 &7121600316908679742
 Transform:
   m_ObjectHideFlags: 0
@@ -10299,7 +10369,7 @@ GameObject:
   - component: {fileID: 6531806934891662561}
   - component: {fileID: 9025588059335718955}
   - component: {fileID: 9025588059335718956}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (57)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10361,7 +10431,7 @@ GameObject:
   - component: {fileID: 6501457259089290658}
   - component: {fileID: 9069448825901814120}
   - component: {fileID: 9069448825901814121}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10383,7 +10453,7 @@ Transform:
   m_Children:
   - {fileID: 2793869333248295572}
   m_Father: {fileID: 3142690613091000020}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 69.22286, y: 13.715501, z: 20.59112}
 --- !u!1 &7435378634162053328
 GameObject:
   m_ObjectHideFlags: 0
@@ -10446,7 +10516,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5581754247276414088}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 1.2090044, y: -0.33140507, z: -0.33136883}
 --- !u!23 &7525162887256121391
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10577,7 +10647,7 @@ GameObject:
   - component: {fileID: 6159475498581343643}
   - component: {fileID: 8259088369451616593}
   - component: {fileID: 8259088369451616594}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (25)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10685,7 +10755,7 @@ Transform:
   m_Children:
   - {fileID: 354223844371090600}
   m_Father: {fileID: 7720691204922302695}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 27.842152, y: 1.1054497, z: -14.307711}
 --- !u!4 &7720691204922302695
 Transform:
   m_ObjectHideFlags: 0
@@ -10701,7 +10771,7 @@ Transform:
   m_Children:
   - {fileID: 7715847721487069148}
   m_Father: {fileID: 2619334551527562352}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 70.41599, y: 28.148283, z: 27.960545}
 --- !u!1 &7720879074458705312
 GameObject:
   m_ObjectHideFlags: 0
@@ -10714,7 +10784,7 @@ GameObject:
   - component: {fileID: 6323645026033518783}
   - component: {fileID: 8081409280025312373}
   - component: {fileID: 8081409280025312374}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (43)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10733,7 +10803,7 @@ GameObject:
   - component: {fileID: 6328358970823696875}
   - component: {fileID: 8085702672353236257}
   - component: {fileID: 8085702672353236258}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (33)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10930,7 +11000,7 @@ Transform:
   m_Children:
   - {fileID: 6599363474393474716}
   m_Father: {fileID: 5281865375542955559}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 21.80045, y: -26.218191, z: -41.24937}
 --- !u!23 &7925079096403984478
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11108,7 +11178,7 @@ Transform:
   m_Children:
   - {fileID: 854040597875680292}
   m_Father: {fileID: 2617489482457022440}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 80.067986, y: -73.66216, z: 16.923328}
 --- !u!4 &8063527996534472426
 Transform:
   m_ObjectHideFlags: 0
@@ -11124,7 +11194,7 @@ Transform:
   m_Children:
   - {fileID: 613467030845827512}
   m_Father: {fileID: 5281865375542955559}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 75.09345, y: 26.72477, z: 32.131493}
 --- !u!23 &8081409280025312373
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11324,7 +11394,7 @@ GameObject:
   - component: {fileID: 5604889032039102347}
   - component: {fileID: 7650603842982937409}
   - component: {fileID: 8820101364167440431}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11358,7 +11428,7 @@ GameObject:
   - component: {fileID: 5572907993771992045}
   - component: {fileID: 7688213023724803879}
   - component: {fileID: 8861159777178872905}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (31)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11459,7 +11529,7 @@ Transform:
   m_Children:
   - {fileID: 3928606673955436402}
   m_Father: {fileID: 6004625134597324351}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 4.706545, y: 11.0759115, z: -19.673618}
 --- !u!1 &8317660013270467066
 GameObject:
   m_ObjectHideFlags: 0
@@ -11472,7 +11542,7 @@ GameObject:
   - component: {fileID: 5731473256037897445}
   - component: {fileID: 7525162887256121391}
   - component: {fileID: 8657487598832671553}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11491,7 +11561,7 @@ GameObject:
   - component: {fileID: 5710636201202446375}
   - component: {fileID: 7540351888378070253}
   - component: {fileID: 8714354001193697155}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11542,7 +11612,7 @@ Transform:
   m_Children:
   - {fileID: 6099490250690820505}
   m_Father: {fileID: 1294229709792186744}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -66.076744, y: -16.568943, z: 26.827312}
 --- !u!1 &8428156427531141929
 GameObject:
   m_ObjectHideFlags: 0
@@ -11587,7 +11657,7 @@ GameObject:
   - component: {fileID: 5289307565709516476}
   - component: {fileID: 7963369631353547382}
   - component: {fileID: 9135761439731601690}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (52)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11606,7 +11676,7 @@ GameObject:
   - component: {fileID: 5290170022297265507}
   - component: {fileID: 7966448632513827241}
   - component: {fileID: 9134898794653936327}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (23)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11700,7 +11770,7 @@ GameObject:
   - component: {fileID: 5341126474618926228}
   - component: {fileID: 7925079096403984478}
   - component: {fileID: 9056921024533592882}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11775,7 +11845,7 @@ Transform:
   m_Children:
   - {fileID: 3588222052194906180}
   m_Father: {fileID: 3371955460587298300}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 65.7364, y: -15.810286, z: -13.091644}
 --- !u!4 &8714354001193697154
 Transform:
   m_ObjectHideFlags: 0
@@ -12211,7 +12281,7 @@ GameObject:
   - component: {fileID: 5055956325012295687}
   - component: {fileID: 7047757609783239885}
   - component: {fileID: 8849105170781439257}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (59)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12287,7 +12357,7 @@ GameObject:
   - component: {fileID: 5181033868195425104}
   - component: {fileID: 6918177274455826330}
   - component: {fileID: 8863842607545007696}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (53)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12372,7 +12442,7 @@ GameObject:
   - component: {fileID: 5129634484133834900}
   - component: {fileID: 6977456995367699550}
   - component: {fileID: 8922779144863573388}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (26)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12449,7 +12519,7 @@ Transform:
   m_Children:
   - {fileID: 1548789995973762950}
   m_Father: {fileID: 9201341801100696896}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 70.97243, y: -12.948315, z: -18.917154}
 --- !u!33 &8943844267954919628
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -12494,7 +12564,7 @@ Transform:
   m_Children:
   - {fileID: 980476003981329957}
   m_Father: {fileID: 3588222052194906180}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 68.62224, y: -12.390895, z: -17.528345}
 --- !u!1 &8986284811131010552
 GameObject:
   m_ObjectHideFlags: 0
@@ -12687,30 +12757,6 @@ SkinnedMeshRenderer:
     m_Center: {x: 4.656613e-10, y: 0.011495378, z: -0.00028370414}
     m_Extent: {x: 0.006864876, y: 0.0049977154, z: 0.005147933}
   m_DirtyAABB: 0
---- !u!114 &9044556097922379353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1055349536705652876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &9044556097922379354
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1055349536705652876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!143 &9044556097922379355
 CharacterController:
   m_ObjectHideFlags: 0
@@ -12737,6 +12783,39 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.98, z: 0}
+--- !u!95 &9044556097922379356
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055349536705652876}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 82a2914d8f86c62488456950c8330e38, type: 3}
+  m_Controller: {fileID: 9100000, guid: 871fb341fb96acc408069c4724236c01, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9044556097922379357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055349536705652876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6189bc8813b8484ca6efe4ba30e4ec8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &9049299878481812331
 Transform:
   m_ObjectHideFlags: 0
@@ -12780,7 +12859,7 @@ GameObject:
   - component: {fileID: 4703205378608045542}
   - component: {fileID: 7395424156234508588}
   - component: {fileID: 9052568842552527098}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (58)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12920,7 +12999,7 @@ GameObject:
   - component: {fileID: 4786041666464332939}
   - component: {fileID: 7318235870635739201}
   - component: {fileID: 9119618478019209621}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: square_tile (54)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13147,7 +13226,7 @@ Transform:
   m_Children:
   - {fileID: 8934138318865888290}
   m_Father: {fileID: 3371955460587298300}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 66.42845, y: -12.876417, z: -8.498891}
 --- !u!1 &9205123071214171298
 GameObject:
   m_ObjectHideFlags: 0
@@ -13202,9 +13281,9 @@ GameObject:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 881624091}
   - {fileID: 330585546}
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 930958136}
   - {fileID: 619770390}
+  - {fileID: 881624091}

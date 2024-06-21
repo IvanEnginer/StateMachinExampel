@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class RuningState : MovementState
+public class RuningState : GroundedState
 {
     private readonly RunningStateConfig _config;
 

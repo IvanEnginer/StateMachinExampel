@@ -6,6 +6,7 @@ public class Character : MonoBehaviour
 {
     [SerializeField] private CharacterConfig _config;
     [SerializeField] private CharacterVeiw _view;
+    [SerializeField] private GroundChecker _groundChecker;
 
     private PlayerInput _input;
     private CharacterStateMachine _stateMachine;
@@ -15,6 +16,7 @@ public class Character : MonoBehaviour
     public CharacterController Controller => _characterController;
     public CharacterConfig Config => _config;
     public CharacterVeiw View => _view;
+    public GroundChecker GroundChecker => _groundChecker;
 
     private void Awake()
     {

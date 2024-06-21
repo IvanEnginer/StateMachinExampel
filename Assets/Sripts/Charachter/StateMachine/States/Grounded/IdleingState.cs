@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class IdleingState : MovementState
+public class IdleingState : GroundedState
 {
     public IdleingState(IStateSwitcher stateSwitcher,StateMachineData data ,Character character) : base(stateSwitcher, data, character)
     {
